@@ -1,6 +1,10 @@
 # CC = clang
-LDLIBS = -lm $(shell pkg-config --libs libftdi1)
-CFLAGS = -MD -O0 -ggdb -Wall -std=c99 $(shell pkg-config --libs --cflags libftdi1)
+LDLIBS = -lm
+LDLIBS += $(shell pkg-config --libs libftdi)
+LDLIBS += $(shell pkg-config --libs libftdi1)
+CFLAGS = -MD -O0 -ggdb -Wall -std=c99
+CFLAGS += $(shell pkg-config --libs libftdi)
+CFLAGS += $(shell pkg-config --libs libftdi1)
 DEST = $(DESTDIR)/usr
 
 all: iceprog
