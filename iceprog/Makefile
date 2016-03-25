@@ -1,17 +1,17 @@
 # CC = clang
-LDLIBS = -L/usr/local/lib -lftdi -lm
-CFLAGS = -MD -O0 -ggdb -Wall -std=c99 -I/usr/local/include
-DESTDIR = /usr/local
+LDLIBS = -lm $(shell pkg-config --libs libftdi1)
+CFLAGS = -MD -O0 -ggdb -Wall -std=c99 $(shell pkg-config --libs --cflags libftdi1)
+DEST = $(DESTDIR)/usr
 
 all: iceprog
 
 iceprog: iceprog.o
 
 install: all
-	cp iceprog $(DESTDIR)/bin/iceprog
+	install -c iceprog $(DEST)/bin/iceprog
 
 uninstall:
-	rm -f $(DESTDIR)/bin/iceprog
+	rm -f $(DEST)/bin/iceprog
 
 clean:
 	rm -f iceprog
