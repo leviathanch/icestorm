@@ -1,4 +1,5 @@
 CXX ?= clang
+DEST = $(DESTDIR)/usr
 
 all:
 	$(MAKE) -C icebox
@@ -13,6 +14,10 @@ clean:
 	$(MAKE) -C icemulti clean
 
 install:
+	$(INSTALL) -d $(DEST)/share
+	$(INSTALL) -d $(DEST)/share/icebox
+	$(INSTALL) -d $(DEST)/bin
+
 	$(MAKE) -C icebox install
 	$(MAKE) -C icepack install
 	$(MAKE) -C iceprog install
