@@ -3,17 +3,17 @@ CXX ?= clang
 LDLIBS = -lm -lstdc++
 CXXFLAGS = -MD -O0 -ggdb -Wall -std=c++11
 CC = $(CXX)
-DESTDIR = /usr/local
+DEST = $(DESTDIR)/usr
 
 all: icemulti
 
 icemulti: icemulti.o
 
 install: all
-	cp icemulti $(DESTDIR)/bin/icemulti
+	install -c icemulti $(DEST)/bin/icemulti
 
 uninstall:
-	rm -f $(DESTDIR)/bin/icemulti
+	rm -f $(DEST)/bin/icemulti
 
 clean:
 	rm -f icemulti
