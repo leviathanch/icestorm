@@ -4,7 +4,7 @@ LDLIBS += $(shell pkg-config --libs libftdi)
 LDLIBS += $(shell pkg-config --libs libftdi1)
 CFLAGS = -MD -O0 -ggdb -Wall -std=c99
 CFLAGS += $(shell pkg-config --libs libftdi)
-CFLAGS += $(shell pkg-config --libs libftdi1)
+CFLAGS += $(shell pkg-config --cflags --libs libftdi1)
 DEST = $(DESTDIR)/usr
 
 all: iceprog
