@@ -1,5 +1,6 @@
 CXX ?= clang
 DEST = $(DESTDIR)/usr
+INSTALL = /usr/bin/install -c
 
 all:
 	$(MAKE) -C icebox
